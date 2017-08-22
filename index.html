@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>打砖块游戏</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#id-canvas{
+			/*width:400;
+			height:200;*/
+			border:5px solid black;
+		}
+		#id-div{
+			visibility: hidden;
+		}
+	</style>
+<!-- 游戏主流程文件 -->
+	<script type="text/javascript" src="game/game.js"></script>
+	<script type="text/javascript" src="game/utils.js"></script>
+	<script type="text/javascript" src="game/levels.js"></script>
+	<script type="text/javascript" src="game/scene.js"></script>
+<!-- 主场景文件 -->
+	<script type="text/javascript" src="scene/scene_main/block.js"></script>
+	<script type="text/javascript" src="scene/scene_main/paddle.js"></script>
+	<script type="text/javascript" src="scene/scene_main/ball.js"></script>
+	<script type="text/javascript" src="scene/scene_main/scene_main.js"></script>
+<!-- 开始和结束游戏场景文件 -->
+	<script type="text/javascript" src="scene/scene_end/scene_end.js"></script>
+	<script type="text/javascript" src="scene/scene_start/scene_start.js"></script>
+</head>
+<body>
+<canvas id = "id-canvas" width="400" height="200"></canvas><br>
+<div id="id-div">
+	<label for="id-range-speed">Control ball speed</label>
+	<input type="range" id = "id-range-speed" min = "0" max = "100" >
+</div>
+<script type="text/javascript">
+
+var __main = function(){
+	var game = new Game(function(game){
+		var scene = new SceneStart(game);
+		game.runWithScene(scene);
+		game.runloop();
+	});
+};
+
+__main();	
+	
+</script>
+</body>
+</html>
